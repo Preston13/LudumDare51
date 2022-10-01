@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         weapon = GetComponentInChildren<Weapon>();
         hitBox = weapon.gameObject.GetComponent<BoxCollider2D>();
-
     }
 
     // Update is called once per frame
@@ -71,6 +70,7 @@ public class Player : MonoBehaviour
     private void OnMovement(InputValue value)
     {
         movement = value.Get<Vector2>();
+        Debug.Log("moving");
     }
 
     private void OnDodge(InputValue value)
