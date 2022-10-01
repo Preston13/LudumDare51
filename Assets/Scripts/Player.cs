@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private float maxHealth = 100;
     [SerializeField]
     private float health = 100;
+    private Animator anim;
 
     public enum Facing
     {
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         weapon = GetComponentInChildren<Weapon>();
         hitBox = weapon.gameObject.GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -63,6 +65,8 @@ public class Player : MonoBehaviour
         {
             facing = Facing.down;
         }
+
+        anim.SetFloat("Facing", facing);
     }
 
     public void GetAttacked(int damage)
