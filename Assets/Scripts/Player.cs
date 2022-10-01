@@ -21,6 +21,17 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float health = 100;
 
+    public enum Facing
+    {
+        right,
+        left,
+        up,
+        down
+    }
+
+    [SerializeField]
+    private Facing facing = Facing.right;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +48,20 @@ public class Player : MonoBehaviour
         if (isDodging)
         {
             rb.velocity = movement * dodgeSpeed;
+        }
+
+        if(movement.x > 0)
+        {
+            facing = Facing.right;
+        } else if (movement.x < 0)
+        {
+            facing = Facing.left;
+        } else if (movement.y > 0)
+        {
+            facing = Facing.up;
+        } else if (movement.y < 0)
+        {
+            facing = Facing.down;
         }
     }
 
