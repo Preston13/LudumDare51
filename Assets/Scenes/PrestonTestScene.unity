@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8479478774791564113, guid: f54504492148f8f43a54e67b1c8bdade, type: 3}
+      propertyPath: dead
+      value: 
+      objectReference: {fileID: 146178953829094372, guid: ea8e5d1b6e91a7243a0467c99e5552e5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f54504492148f8f43a54e67b1c8bdade, type: 3}
 --- !u!1 &958722102
@@ -437,6 +441,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8479478774791564113, guid: f54504492148f8f43a54e67b1c8bdade, type: 3}
+      propertyPath: dead
+      value: 
+      objectReference: {fileID: 146178953829094372, guid: ea8e5d1b6e91a7243a0467c99e5552e5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f54504492148f8f43a54e67b1c8bdade, type: 3}
 --- !u!1001 &1710666476
@@ -514,6 +522,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8479478774791564113, guid: f54504492148f8f43a54e67b1c8bdade, type: 3}
+      propertyPath: dead
+      value: 
+      objectReference: {fileID: 146178953829094372, guid: ea8e5d1b6e91a7243a0467c99e5552e5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f54504492148f8f43a54e67b1c8bdade, type: 3}
 --- !u!1 &1791218336
@@ -678,6 +690,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8479478774791564113, guid: f54504492148f8f43a54e67b1c8bdade, type: 3}
+      propertyPath: dead
+      value: 
+      objectReference: {fileID: 146178953829094372, guid: ea8e5d1b6e91a7243a0467c99e5552e5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f54504492148f8f43a54e67b1c8bdade, type: 3}
 --- !u!114 &4008318925702704675
