@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour
 
     protected Animator anim;
 
+    public GameObject dead;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -59,6 +61,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            Instantiate(dead, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
