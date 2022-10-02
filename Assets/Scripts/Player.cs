@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float health = 100;
     private Animator anim;
+    private float attackTimer;
+    private bool isAttacking = false;
 
     public Manager manager;
 
@@ -75,39 +77,51 @@ public class Player : MonoBehaviour
         {
             weapon.maxQuickDamage = 20;
             weapon.minQuickDamage = 10;
+            weapon.knockbackForce = 15;
+            attackTimer = .2f;
         }
         else if (type == "Sword")
         {
             weapon.maxQuickDamage = 70;
             weapon.minQuickDamage = 50;
+            weapon.knockbackForce = 5;
+            attackTimer = 0;
         }
         else if (type == "Pressure Washer")
         {
             weapon.maxQuickDamage = 50;
             weapon.minQuickDamage = 30;
+            weapon.knockbackForce = 20;
+            attackTimer = .4f;
         }
         else if (type == "Jai Alai")
         {
             weapon.maxQuickDamage = 30;
             weapon.minQuickDamage = 20;
+            weapon.knockbackForce = 10;
+            attackTimer = .6f;
         }
         manager.PickedUpWeapon(type);
     }
 
-    public void GetAttacked(int damage)
+    public void GetAttacked(Weapon.AttackInfo attackInfo)
     {
-        health -= damage;
+        rb.AddForce(attackInfo.knockBack, ForceMode2D.Impulse);
+        health -= attackInfo.damage;
         if (health <= 0)
         {
-            StartCoroutine("Die");
+            Destroy(this.gameObject);
         }
     }
 
     private IEnumerator Attack()
     {
+        isAttacking = true;
         anim.SetBool("IsAttacking", true);
         yield return new WaitForSeconds(.1f);
         anim.SetBool("IsAttacking", false);
+        yield return new WaitForSeconds(attackTimer);
+        isAttacking = false;
     }
 
     private IEnumerator Die()
@@ -140,7 +154,7 @@ public class Player : MonoBehaviour
 
     private void OnQuickAttack()
     {
-        if (weapon != null)
+        if (weapon != null && !isAttacking)
         {
             weapon.QuickAttack();
             StartCoroutine("Attack");
