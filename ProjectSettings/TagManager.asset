@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Broom
+  - Sword
+  - Pressure Washer
+  - Jai Alai
   layers:
   - Default
   - TransparentFX

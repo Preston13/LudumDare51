@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     private float health = 100;
     private Animator anim;
 
+    public Manager manager;
+
     public enum Facing
     {
         right,
@@ -36,7 +38,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        weapon = GetComponentInChildren<Weapon>();
         anim = GetComponent<Animator>();
     }
 
@@ -65,6 +66,32 @@ public class Player : MonoBehaviour
         }
 
         anim.SetFloat("Facing", (float)facing);
+    }
+
+    public void PickUpWeapon(string type)
+    {
+        weapon = GetComponentInChildren<Weapon>(true);
+        if (type == "Broom")
+        {
+            weapon.maxQuickDamage = 20;
+            weapon.minQuickDamage = 10;
+        }
+        else if (type == "Sword")
+        {
+            weapon.maxQuickDamage = 70;
+            weapon.minQuickDamage = 50;
+        }
+        else if (type == "Pressure Washer")
+        {
+            weapon.maxQuickDamage = 50;
+            weapon.minQuickDamage = 30;
+        }
+        else if (type == "Jai Alai")
+        {
+            weapon.maxQuickDamage = 30;
+            weapon.minQuickDamage = 20;
+        }
+        manager.PickedUpWeapon(type);
     }
 
     public void GetAttacked(int damage)
@@ -113,14 +140,11 @@ public class Player : MonoBehaviour
 
     private void OnQuickAttack()
     {
-        weapon.QuickAttack();
-        StartCoroutine("Attack");
-    }
-
-    private void OnHeavyAttack()
-    {
-        weapon.HeavyAttack();
-        StartCoroutine("Attack");
+        if (weapon != null)
+        {
+            weapon.QuickAttack();
+            StartCoroutine("Attack");
+        }
     }
 
     private void OnInteract()
