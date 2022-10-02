@@ -20,7 +20,6 @@ public class Timer : MonoBehaviour
         if (timeLeft > 0)
         {
             timeLeft -= 1;
-            Debug.Log(timeLeft);
         }
     }
 }

@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     private bool isDodging = false;
     [SerializeField]
     private Weapon weapon;
-    private BoxCollider2D hitBox;
     [SerializeField]
     private float maxHealth = 100;
     [SerializeField]
@@ -38,7 +37,6 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         weapon = GetComponentInChildren<Weapon>();
-        hitBox = weapon.gameObject.GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
     }
 
@@ -66,7 +64,7 @@ public class Player : MonoBehaviour
             facing = Facing.down;
         }
 
-        anim.SetFloat("Facing", facing);
+        anim.SetFloat("Facing", (float)facing);
     }
 
     public void GetAttacked(int damage)
@@ -78,6 +76,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    private IEnumerator Attack()
+    {
+        anim.SetBool("IsAttacking", true);
+        yield return new WaitForSeconds(.1f);
+        anim.SetBool("IsAttacking", false);
+    }
+
     private IEnumerator Die()
     {
         // Trigger animation
@@ -86,20 +91,9 @@ public class Player : MonoBehaviour
         GameObject.Destroy(this.gameObject);
     }
 
-
-    private IEnumerator Attack()
-    {
-        hitBox.enabled = true;
-
-        yield return new WaitForSeconds(.1f);
-
-        hitBox.enabled = false;
-    }
-
     private void OnMovement(InputValue value)
     {
         movement = value.Get<Vector2>();
-        Debug.Log("moving");
     }
 
     private void OnDodge(InputValue value)
