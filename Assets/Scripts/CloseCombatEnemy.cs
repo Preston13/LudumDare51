@@ -6,12 +6,15 @@ public class CloseCombatEnemy : Enemy
 {
     BoxCollider2D hitBox;
     bool isAttacking;
+    Vector3 prevPos;
+    Vector3 lastMoveDir;
 
     protected override void Start()
     {
         base.Start();
 
-        hitBox = weapon.gameObject.GetComponent<BoxCollider2D>();
+        prevPos = transform.position;
+        lastMoveDir = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -49,6 +52,31 @@ public class CloseCombatEnemy : Enemy
                 Invoke("Attack", 1f);
             }
         }
+
+        if (transform.position != prevPos)
+        {
+            lastMoveDir = (transform.position - prevPos).normalized;
+            prevPos = transform.position;
+        }
+
+        if (lastMoveDir.x > 0)
+        {
+            facing = Facing.right;
+        } 
+        else if (lastMoveDir.x < 0)
+        {
+            facing = Facing.left;
+        }
+        else if (lastMoveDir.y > 0)
+        {
+            facing = Facing.up;
+        }
+        else if (lastMoveDir.y < 0)
+        {
+            facing = Facing.down;
+        }
+
+        anim.SetFloat("Facing", (float)facing);
     }
 
     private void Attack()
@@ -59,11 +87,9 @@ public class CloseCombatEnemy : Enemy
 
     private IEnumerator Attacking()
     {
-        hitBox.enabled = true;
-
+        anim.SetBool("IsAttacking", true);
         yield return new WaitForSeconds(.1f);
-
-        hitBox.enabled = false;
+        anim.SetBool("IsAttacking", false);
         isAttacking = false;
     }
 

@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    protected enum Facing
+    {
+        right,
+        left,
+        up,
+        down
+    }
+
+    protected Facing facing = Facing.right;
     [SerializeField]
     private float maxHealth = 100;
     [SerializeField]
@@ -20,11 +29,14 @@ public class Enemy : MonoBehaviour
 
     public Player target;
 
+    protected Animator anim;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         weapon = GetComponentInChildren<Weapon>(false);
+        anim = GetComponent<Animator>();
     }
 
     private void Awake()
@@ -47,16 +59,8 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            StartCoroutine("Die");
+            Destroy(this.gameObject);
         }
-    }
-
-    private IEnumerator Die()
-    {
-        // Trigger animation
-
-        yield return new WaitForSeconds(1);
-        GameObject.Destroy(this.gameObject);
     }
 
     protected void Follow(Player target)
