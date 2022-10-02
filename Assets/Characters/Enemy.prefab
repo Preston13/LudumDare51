@@ -12,6 +12,14 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2120228602, guid: a96d9aaf715eef94fa3b9a080c3efce1, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120228602, guid: a96d9aaf715eef94fa3b9a080c3efce1, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120228602, guid: a96d9aaf715eef94fa3b9a080c3efce1, type: 3}
       propertyPath: m_SleepingMode
       value: 0
       objectReference: {fileID: 0}

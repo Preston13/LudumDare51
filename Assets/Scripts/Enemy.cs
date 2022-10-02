@@ -56,9 +56,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void GetAttacked(float damage)
+    public void GetAttacked(Weapon.AttackInfo attackInfo)
     {
-        health -= damage;
+        rb.AddForce(attackInfo.knockBack, ForceMode2D.Impulse);
+        health -= attackInfo.damage;
         if (health <= 0)
         {
             Instantiate(dead, transform.position, Quaternion.identity);
