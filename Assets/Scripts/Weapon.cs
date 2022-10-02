@@ -7,9 +7,6 @@ public class Weapon : MonoBehaviour
     public int maxQuickDamage = 20;
     public int minQuickDamage = 5;
 
-    public int maxHeavyDamage = 50;
-    public int minHeavyDamage = 25;
-
     public int hitDamage;
     // Start is called before the first frame update
     void Start()
@@ -21,11 +18,6 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public virtual void HeavyAttack()
-    {
-        hitDamage = Random.Range(minHeavyDamage, maxHeavyDamage);
     }
 
     public virtual void QuickAttack()
