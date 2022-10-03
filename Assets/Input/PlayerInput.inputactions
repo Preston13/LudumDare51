@@ -279,6 +279,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Cookin",
+            "id": "028b739f-6a6a-4dec-a2f3-558e44a6d50b",
+            "actions": [
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "806883c0-ba3c-4ce0-9424-54657c19924c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "64382f9b-2b75-4057-ab22-abee57660303",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
