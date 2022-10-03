@@ -8,6 +8,7 @@ public class Manager : MonoBehaviour
     public string weaponChoice;
     public GameObject[] sweepers;
     public CleanMaterial[] materials;
+    public int cleanedMaterials = 0;
 
     private Sweeper sweeper;
     private bool sweeperExists;
