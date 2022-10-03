@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     private Animator anim;
     private float attackTimer;
     private bool isAttacking = false;
+    public GameObject horWall;
+    public GameObject verWall;
 
     public Manager manager;
 
@@ -68,6 +70,24 @@ public class Player : MonoBehaviour
         }
 
         anim.SetFloat("Facing", (float)facing);
+    }
+
+    public void OnBuild()
+    {
+        if (facing == Facing.up)
+        {
+            Instantiate(horWall, transform.position+transform.forward * 4, Quaternion.identity); 
+        } else if (facing == Facing.right)
+        {
+            Instantiate(verWall, transform.position + transform.right * 2, Quaternion.identity);
+        } else if (facing == Facing.left)
+        {
+            Instantiate(verWall, transform.position - transform.right * 2, Quaternion.identity);
+        } else if (facing == Facing.down)
+        {
+            Instantiate(horWall, transform.position - transform.forward * 4, Quaternion.identity);
+        }
+        
     }
 
     public void PickUpWeapon(string type)

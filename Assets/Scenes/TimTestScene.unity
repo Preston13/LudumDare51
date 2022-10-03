@@ -130,6 +130,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1222070843, guid: a96d9aaf715eef94fa3b9a080c3efce1, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120228598, guid: a96d9aaf715eef94fa3b9a080c3efce1, type: 3}
+      propertyPath: wall
+      value: 
+      objectReference: {fileID: 5598098629452065507, guid: 0c9e578cde0bfb74486e297dc899f668, type: 3}
+    - target: {fileID: 2120228598, guid: a96d9aaf715eef94fa3b9a080c3efce1, type: 3}
+      propertyPath: horWall
+      value: 
+      objectReference: {fileID: 5598098629452065507, guid: 0c9e578cde0bfb74486e297dc899f668, type: 3}
+    - target: {fileID: 2120228598, guid: a96d9aaf715eef94fa3b9a080c3efce1, type: 3}
+      propertyPath: verWall
+      value: 
+      objectReference: {fileID: 5598098629452065507, guid: b6ddf5fa3d4872d4eac00d06c6fa93e0, type: 3}
+    - target: {fileID: 2120228603, guid: a96d9aaf715eef94fa3b9a080c3efce1, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: e31f3ce3-44e7-42f8-9eee-1f709a1a8992
+      objectReference: {fileID: 0}
     - target: {fileID: 1300572599443906265, guid: a96d9aaf715eef94fa3b9a080c3efce1, type: 3}
       propertyPath: m_Name
       value: Character
@@ -257,9 +277,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxQuickDamage: 20
   minQuickDamage: 5
-  maxHeavyDamage: 50
-  minHeavyDamage: 25
+  knockbackForce: 0
   hitDamage: 0
+--- !u!1 &1292875411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1292875413}
+  - component: {fileID: 1292875412}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1292875412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292875411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5ab6d976257c54fb2e653bb2e84a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationSettings: {fileID: 11400000, guid: a358d8b0df3a64647a906d373ee97954, type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
+--- !u!4 &1292875413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292875411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1791218336
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +346,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1791218339}
   - component: {fileID: 1791218338}
-  - component: {fileID: 1791218337}
+  - component: {fileID: 1791218341}
+  - component: {fileID: 1791218340}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -278,14 +355,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1791218337
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791218336}
-  m_Enabled: 1
 --- !u!20 &1791218338
 Camera:
   m_ObjectHideFlags: 0
@@ -344,6 +413,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1791218340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791218336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b481b222021e2c440b242ab7f6c0711b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
+--- !u!114 &1791218341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791218336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0478e3770adeeb442b98bd31a5adcfe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1 &2120228597 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1300572599443906265, guid: a96d9aaf715eef94fa3b9a080c3efce1, type: 3}
@@ -365,9 +470,12 @@ MonoBehaviour:
   dodgeSpeed: 10
   isDodging: 0
   weapon: {fileID: 0}
-  hitBox: {fileID: 0}
   maxHealth: 100
   health: 100
+  horWall: {fileID: 0}
+  verWall: {fileID: 0}
+  manager: {fileID: 0}
+  facing: 0
 --- !u!4 &2120228600 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6945311106917099689, guid: a96d9aaf715eef94fa3b9a080c3efce1, type: 3}
