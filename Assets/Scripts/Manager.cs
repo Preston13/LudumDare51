@@ -13,6 +13,8 @@ public class Manager : MonoBehaviour
     private Sweeper sweeper;
     private bool sweeperExists;
     private bool activeMaterial = false;
+    [SerializeField]
+    private int buffAmount = 0;
 
     void Awake()
     {
@@ -80,5 +82,33 @@ public class Manager : MonoBehaviour
             Destroy(weapon.gameObject);
         }
         weaponChoice = choice;
+    }
+
+    public void AddIngredient(string ingredient)
+    {
+        if (ingredient == "Tomato")
+        {
+            buffAmount += 2;
+        }
+        else if (ingredient == "Watermelon")
+        {
+            buffAmount += 2;
+        }
+        else if (ingredient == "Egg")
+        {
+            buffAmount += 1;
+        }
+        else if (ingredient == "Burger")
+        {
+            buffAmount--;
+        }
+        else if (ingredient == "Dirt")
+        {
+            buffAmount -= 3;
+        }
+        else if (ingredient == "Stick")
+        {
+            buffAmount -= 2;
+        }
     }
 }

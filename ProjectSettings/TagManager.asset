@@ -9,6 +9,13 @@ TagManager:
   - Sword
   - Pressure Washer
   - Jai Alai
+  - Oven
+  - Tomato
+  - Watermelon
+  - Burger
+  - Egg
+  - Dirt
+  - Stick
   layers:
   - Default
   - TransparentFX
