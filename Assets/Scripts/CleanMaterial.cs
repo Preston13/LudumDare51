@@ -7,6 +7,8 @@ public class CleanMaterial : MonoBehaviour
     public bool isClean = false;
     float speed = 10;
     int cleanAmount = 1;
+    SpriteRenderer sprite;
+    Manager manager;
 
     public int dirtiness = 10;
     public Transform dirtyTarget;
@@ -16,7 +18,8 @@ public class CleanMaterial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        sprite = GetComponent<SpriteRenderer>();
+        manager = FindObjectOfType<Manager>();
     }
 
     // Update is called once per frame
@@ -51,9 +54,11 @@ public class CleanMaterial : MonoBehaviour
             cleanAmount = 2;
         }
         dirtiness -= cleanAmount;
-        if (dirtiness <= 0)
+        sprite.color += Color.white / (10 / cleanAmount);
+        if (dirtiness <= 0 && !isClean)
         {
             isClean = true;
+            manager.cleanedMaterials++;
         }
     }
 }
