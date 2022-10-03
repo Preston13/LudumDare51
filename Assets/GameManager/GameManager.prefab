@@ -63,3 +63,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   weaponChoice: 
+  sweepers:
+  - {fileID: 4539029466184573817, guid: 932aeb97d2c9ba4468639e74bafebf14, type: 3}
+  - {fileID: 4539029466184573817, guid: 7a2dd3c8af505ee4ca02a1e5850a91e9, type: 3}
+  - {fileID: 4539029466184573817, guid: f50f6e18f81430e4d954861e93147a2b, type: 3}
+  - {fileID: 4539029466184573817, guid: a5c7078871ae25f449681d27479536af, type: 3}
+  materials: []

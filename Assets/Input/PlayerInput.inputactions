@@ -251,6 +251,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Sweepin",
+            "id": "2f52dd2e-3719-4ce0-bd4b-90b2fac8f55e",
+            "actions": [
+                {
+                    "name": "Sweep",
+                    "type": "Value",
+                    "id": "36b77615-b51f-4af6-be07-8449a5510e41",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dde3385a-8693-439d-9336-09a5e07a750d",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sweep",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
