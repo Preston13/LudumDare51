@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     protected Player[] players;
-    protected int maxDistance = 3;
+    protected int maxDistance = 5;
     protected int minDistance = 1;
     protected Weapon weapon;
 

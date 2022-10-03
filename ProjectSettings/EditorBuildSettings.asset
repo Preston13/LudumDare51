@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PrestonTestScene.unity
+    path: Assets/Scenes/Combat.unity
     guid: 66d8886b1b47bf9408770a78c04a2a36
   - enabled: 1
     path: Assets/Scenes/SweepTest.unity
